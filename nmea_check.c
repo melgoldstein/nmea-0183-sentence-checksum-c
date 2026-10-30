@@ -68,7 +68,12 @@ static int check_sentence(char *sentence) {
     return 1;
 }
 
-int main(void) {
+int main(int argc, char **argv) {
+    if (argc == 2 && !strcmp(argv[1], "--help")) {
+        puts("usage: nmea_check < receiver.log; CSV to stdout, invalid records to stderr");
+        return 0;
+    }
+    if (argc != 1) { fprintf(stderr, "usage: nmea_check < receiver.log\n"); return 2; }
     char sentence[256];
     unsigned line = 0;
     int failed = 0;

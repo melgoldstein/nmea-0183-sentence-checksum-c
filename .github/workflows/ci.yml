@@ -1,5 +1,10 @@
 name: verification
 on: [push, pull_request]
+permissions:
+  contents: read
+concurrency:
+  group: verification-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -11,3 +16,4 @@ jobs:
       - run: make CC=${{ matrix.compiler }}
       - run: |
           printf '%s\n' '$GPGGA,123519,4807.038,N,01131.000,E,1,08,0.9,545.4,M,46.9,M,,*47' | ./nmea_check
+      - run: python3 tests/test_cli.py

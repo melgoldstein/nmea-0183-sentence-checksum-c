@@ -7,3 +7,7 @@ clean:
 	rm -f nmea_check nmea_check.exe *.o
 .PHONY: all clean
 
+
+test: nmea_check
+	python3 tests/test_cli.py
+.PHONY: test
