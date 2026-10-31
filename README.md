@@ -7,4 +7,4 @@ Checks XOR bytes between $ and *, accepting upper/lower hex digits.
 Converts degrees/minutes to signed decimal latitude and longitude.
 Rejects unavailable fixes, bad coordinates, checksums and oversized lines.
 Exit status is nonzero if any input record fails; diagnostics go to stderr.
-Requires a C99 compiler and libm. License: MIT.
+Requires a C99 compiler and libm. License: MIT. [Portfolio: melgoldstein.com](https://melgoldstein.com/)
